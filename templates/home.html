@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+
+{% block content %}
+    {% for post in object_list %}
+        <div class="post-entry">
+            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
+
+<!--Этот шаблон расширяет шаблон base.html
+object_list происходит из ListView и содержит все объекты в нашем view
+"{% url 'post_detail' post.pk %}" добавляем чтобы с главной страницы
+можно было переходить на страницы с постом
+-->
